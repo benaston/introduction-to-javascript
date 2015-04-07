@@ -75,16 +75,20 @@ var http = require('http');
 var fs = require('fs');
 
 http.createServer(function (req, res) {
-  console.log(req.url);
-  var file = /^\/(.*)/g.exec('/foo.html')[1];
-  console.log(file);
-  var index = fs.readFileSync(file);
+var filename, index;
 
-  res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end(index);
-    }).listen(1111);
+filename = /^\/(.*)/g.exec(req.url);
 
-console.log('listening on 1111');
+if(filename.length) {
+  try {
+    index = fs.readFileSync('./' + filename[0]);
+    res.writeHead(200, {'Content-Type': 'text/html'});
+  } catch (e) { 
+    index = e.message;
+  }
+}
+
+res.end(index);
 ```
 
 ```html
