@@ -49,3 +49,50 @@ http.createServer(function (req, res) {
 </body>
 </html>
 ```
+
+##Coursework 4
+
+```javascript
+var http = require('http');
+var fs = require('fs');
+
+http.createServer(function (req, res) {
+  console.log(req.url);
+  var file = /^\/(.*)/g.exec('/foo.html')[1];
+  console.log(file);
+  var index = fs.readFileSync(file);
+
+  res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(index);
+    }).listen(1111);
+
+console.log('listening on 1111');
+```
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <h1>Hello world</h1>
+    <h2>Response:</h2>
+    <div id="response"></div>
+    <script src='https://code.jquery.com/jquery-2.1.3.js'></script>
+    <script>
+    $.ajax({
+            url: "http://localhost:1111",
+            beforeSend: function(xhr) {
+                xhr.overrideMimeType("text/plain; charset=x-user-defined");
+            }
+        })
+        .done(function(data) {
+        	$('#response').text(data);
+        });
+    </script>
+</body>
+
+</html>
+```
