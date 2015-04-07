@@ -1,4 +1,22 @@
 # introduction-to-javascript
+William
+Dan
+James
+
+Ved
+David
+Louis
+
+
+Objects
+SemiColons
+Statements
+Expression
+loops 
+functions
+Object literal
+For in
+arrays
 
 ##Coursework 1
 
