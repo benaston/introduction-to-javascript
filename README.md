@@ -118,3 +118,30 @@ res.end(index);
 
 </html>
 ```
+##Coursework 5
+
+```html
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+  <a id="foo" href>Click me!</a>
+
+  <script>
+    document.getElementById('foo').onclick = onFooClick;
+
+    function onFooClick(e) {
+      var scriptToInject, popUp, node, importedNode;
+
+      scriptToInject = 'console.log("Hello from the injected script!");';
+      popUp = window.open('about:blank');
+      node = document.createElement('script');
+      node.textContent = scriptToInject;
+      importedNode = popUp.document.importNode(node, true);
+      popUp.document.body.appendChild(importedNode);
+    }
+  </script>
+</body>
+</html>
+```
+</html>
