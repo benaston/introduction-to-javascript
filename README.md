@@ -133,7 +133,7 @@ res.end(index);
     function onFooClick(e) {
       var scriptToInject, popUp, node, importedNode;
 
-      scriptToInject = 'console.log("Hello from the injected script!");';
+      scriptToInject = 'document.body.innerHTML = "Hello from the injected script!";';
       popUp = window.open('about:blank');
       node = document.createElement('script');
       node.textContent = scriptToInject;
@@ -144,4 +144,4 @@ res.end(index);
 </body>
 </html>
 ```
-</html>
+
