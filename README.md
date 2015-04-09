@@ -155,3 +155,21 @@ res.end(index);
 </html>
 ```
 
+##Coursework 5
+
+###Code golf
+
+Write a program that takes an array of strings, selects only the strings with three characters and then returns another array containing those strings reversed.
+
+For example:
+
+    ['one','two','three']
+
+...and transforms it into:
+
+    ['eno','owt']
+
+```javascript
+['one','two','three'].filter(i => i.length == 3).map(i => i.split('').reverse().join(''))
+['one','two','three'].reduce((p, i)=>i.length == 3 ? p.push(i.split('').reverse().join('')) && p : p, [])
+```
