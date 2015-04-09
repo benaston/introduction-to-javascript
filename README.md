@@ -20,6 +20,8 @@ arrays
 
 ##Coursework 1
 
+###Intro to Node.js
+
 ```javascript
 process.argv.forEach(function (val, index, array) {
     console.log(index + ': ' + val);
@@ -27,6 +29,8 @@ process.argv.forEach(function (val, index, array) {
 ```
 
 ##Coursework 2
+
+###HTTP Server in Node.js
 
 ```javascript
 var http = require('http');
@@ -41,6 +45,8 @@ http.createServer(function (req, res) {
 ```
 
 ##Coursework 3
+
+###DOM manipulation
 
 ```html
 <!DOCTYPE html>
@@ -69,6 +75,8 @@ http.createServer(function (req, res) {
 ```
 
 ##Coursework 4
+
+###Regular expressions and Ajax
 
 ```javascript
 var http = require('http');
@@ -119,6 +127,8 @@ res.end(index);
 </html>
 ```
 ##Coursework 5
+
+###Inter-page communication
 
 ```html
 <!DOCTYPE html>
