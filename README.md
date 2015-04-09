@@ -155,7 +155,7 @@ res.end(index);
 </html>
 ```
 
-##Coursework 5
+##Coursework 6
 
 ###Code golf (arrays and strings)
 
