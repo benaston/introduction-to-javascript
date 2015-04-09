@@ -157,7 +157,7 @@ res.end(index);
 
 ##Coursework 5
 
-###Code golf
+###Code golf (arrays and strings)
 
 Write a program that takes an array of strings, selects only the strings with three characters and then returns another array containing those strings reversed.
 
