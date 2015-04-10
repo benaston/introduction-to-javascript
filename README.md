@@ -208,3 +208,21 @@ index(Map(), s1, 0)
 index("Mississippi").foreach { case (k, v) => println(k + " " + v) } 
 ```
 
+function indexes(s) {
+	return (function go(a, i, acc) {
+		if(!a.length) {
+			return acc;
+		}
+
+		c = a[i];
+
+		if(!acc[c]) {
+			acc[c] = [i];
+		} else {
+			acc[c].push(i);
+		}
+
+		return go(a.splice(0,1) && a, i++, acc);
+	}(s.split(''), 0, {}));
+}
+indexes('Mississippi');
