@@ -173,3 +173,38 @@ For example:
 ['one','two','three'].filter(i => i.length == 3).map(i => i.split('').reverse().join(''))
 ['one','two','three'].reduce((p, i)=>i.length == 3 ? p.push(i.split('').reverse().join('')) && p : p, [])
 ```
+
+##Coursework 7
+
+Write a function that, given a string, produces a map of the indexes of all characters. For example, 
+indexes("Mississippi") should return a map associating 'M' with the set {0}, 'i' with the set {1, 4, 7, 10}, and 
+so on.  
+
+```javascript
+function indexes(s) {
+	return s.split('').reduce(function(p, c, i) {
+		if(!p[c]) { 
+			p[c] = [i]; 
+		} else {
+			p[c].push(i);
+		}
+		return p;
+	}, {});
+}
+indexes('Mississippi');
+
+
+def index(s1: String): Map[Char, Set[Int]] = {
+@tailrec def index(cache: Map[Char, Set[Int]], s2: String, pos: Int): Map[Char, Set[Int]] = {
+val indexSet = cache.getOrElse(s2.head, Set[Int]()) + pos
+val updatedCache = cache + (s2.head -> indexSet)
+if (s2.tail.nonEmpty)
+  index(updatedCache, s2.tail, pos + 1)
+else
+  updatedCache
+}
+index(Map(), s1, 0)
+}
+index("Mississippi").foreach { case (k, v) => println(k + " " + v) } 
+```
+
