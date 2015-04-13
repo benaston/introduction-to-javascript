@@ -192,8 +192,9 @@ function indexes(s) {
 	}, {});
 }
 indexes('Mississippi');
+```
 
-
+```scala
 def index(s1: String): Map[Char, Set[Int]] = {
 @tailrec def index(cache: Map[Char, Set[Int]], s2: String, pos: Int): Map[Char, Set[Int]] = {
 val indexSet = cache.getOrElse(s2.head, Set[Int]()) + pos
@@ -207,7 +208,7 @@ index(Map(), s1, 0)
 }
 index("Mississippi").foreach { case (k, v) => println(k + " " + v) } 
 ```
-
+```javascript
 function indexes(s) {
 	return (function go(a, i, acc) {
 		if(!a.length) {
@@ -226,3 +227,4 @@ function indexes(s) {
 	}(s.split(''), 0, {}));
 }
 indexes('Mississippi');
+```
