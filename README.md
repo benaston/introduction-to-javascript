@@ -228,3 +228,6 @@ function indexes(s) {
 }
 indexes('Mississippi');
 ```
+
+##Coursework 8
+requestanimationframe, o-auth with github, websockets, canvas, history api
