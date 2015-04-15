@@ -231,3 +231,13 @@ indexes('Mississippi');
 
 ##Coursework 8
 requestanimationframe, o-auth with github, websockets, canvas, history api
+
+Tail call optimization
+
+function sum(...values) {
+     function sumTo(acc, values) {
+         if (!values.length) return acc;
+         else return sumTo(acc+values.shift(), values);
+     }
+     return sumTo(0, values);
+ }
