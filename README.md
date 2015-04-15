@@ -241,3 +241,15 @@ function sum(...values) {
      }
      return sumTo(0, values);
  }
+
+function sum(...values) {
+
+  return (function f(acc, ...args) {
+    if(!args.length) { 
+      return acc; 
+    }
+
+    return f(acc + args.shift(), args);
+  }(0, values))
+  
+}
