@@ -253,3 +253,14 @@ function sum(...values) {
   }(0, values))
   
 }
+
+
+function sum(...values) {
+  return (function f(acc, values) {
+    if(!values.length) { 
+      return acc; 
+    }
+
+    return f(acc + values.shift(), values);
+  }(0, values));
+}
