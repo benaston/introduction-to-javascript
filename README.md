@@ -234,6 +234,7 @@ requestanimationframe, o-auth with github, websockets, canvas, history api
 
 Tail call optimization
 
+```javascript
 function sum(...values) {
      function sumTo(acc, values) {
          if (!values.length) return acc;
@@ -264,3 +265,4 @@ function sum(...values) {
     return f(acc + values.shift(), values);
   }(0, values));
 }
+```
