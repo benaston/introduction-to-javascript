@@ -269,3 +269,14 @@ function sum(...values) {
 ##Coursework 9
 
 Mash-ups. Article summarizer mash-up.
+
+##Coursework 10
+
+###Websockets
+
+https://devcenter.heroku.com/articles/node-websockets#create-websocket-app
+
+##Coursework 11
+
+Databases
+
