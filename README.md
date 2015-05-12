@@ -265,6 +265,37 @@ function sum(...values) {
     return f(acc + values.shift(), values);
   }(0, values));
 }
+
+```javascript
+var t1, t2;
+
+t1 = '12:45:30';
+t2 = '12:45:31';
+
+function compareTimes(t1, t2) {
+  t1 = t1.split(':');
+  t2 = t2.split(':');
+  
+  return (function compare(t1, t2, i) {
+    if(t1.length < i || t2.length < i) {
+      return false;
+    }
+
+    if(t1[i] < t2[i]) {
+      return true;
+    }
+
+    if(t1[i] > t2[i]) {
+      return false;
+    }
+
+    return compare(t1, t2, ++i);
+  }(t1, t2, 0));
+}
+
+compareTimes(t2, t1);
+```
+
 ```
 ##Coursework 9
 
