@@ -265,6 +265,7 @@ function sum(...values) {
     return f(acc + values.shift(), values);
   }(0, values));
 }
+```
 
 ```javascript
 var t1, t2;
