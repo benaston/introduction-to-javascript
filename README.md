@@ -282,19 +282,15 @@ function compareTimes(t1, t2) {
       return false;
     }
 
-    if(t1[i] < t2[i]) {
-      return true;
+    if(t1[i] !== t2[i]) {
+      return t1[i] < t2[i];  
     }
 
-    if(t1[i] > t2[i]) {
-      return false;
-    }
-
-    return compare(t1, t2, ++i);
+    return compare(t1, t2, ++i);    
   }(t1, t2, 0));
 }
 
-compareTimes(t2, t1);
+compareTimes(t1, t2);
 ```
 
 ```
