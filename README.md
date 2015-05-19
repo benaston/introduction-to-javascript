@@ -308,3 +308,53 @@ https://devcenter.heroku.com/articles/node-websockets#create-websocket-app
 
 Databases
 
+##Promises
+
+```html
+<html>
+
+<head>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/q.js/0.9.2/q.js"></script>
+</head>
+
+<body>
+</body>
+<script>
+Q.longStackSupport = true;
+try {
+	var foo = {
+		bar: function() {
+			var d = Q.defer();
+			d.resolve();
+			return  d.promise;
+		}
+	};
+
+	function bam() {
+		console.log('bam');
+		throw new Error('hello world');
+	}
+
+	function bat(e) {
+		console.log('bat');
+	}
+
+	foo.bar()
+	   .then(bat)
+	   .then(bam)
+	   .fail(function(e) {
+	   	console.log('fail: ', e); // this will catch exceptions
+	   })
+	   .catch(function(e) {
+	   	console.log('this is the qcatch', e);
+	   	//...but this can throw, so we should also have a done
+	   })
+	   .done(function () {}, function(e) { console.log('this is the done: ', e) });
+
+} catch (e) {
+	console.log('this is the catch: ', e);
+}
+</script>
+
+</html>
+```
