@@ -358,3 +358,57 @@ try {
 
 </html>
 ```
+
+```html
+<html>
+
+<head>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/q.js/0.9.7/q.js"></script>
+	<script src="http://jasmine.github.io/2.3/lib/jasmine.js"></script>
+</head>
+
+<body>
+</body>
+<script>
+var output, bar;
+
+bar = {
+	doSomethingAsync: function() {
+		var d = Q.defer();
+		d.resolve('result');
+		return d.promise;
+	}
+};
+
+function Foo(bar) {
+	this._bar = bar;
+
+	this.go = function() {
+		var deferred = Q.defer();
+		this._bar.doSomethingAsync()
+			.then(onSuccess.bind(this, deferred));
+
+		return deferred.promise;
+	}
+};
+
+function onSuccess(deferred, result) {
+	deferred.reject();
+}
+
+output = new Foo(bar).go();
+output.fail(function() {
+			console.log('output.isPending?:', output.isPending());
+			console.log('output.isRejected?:', output.isRejected());
+			console.log('output.isFulfilled?:', output.isFulfilled());
+		});
+	// .finally(function() {
+	// 	console.log('output.isPending?:', output.isPending());
+	// 	console.log('output.isRejected?:', output.isRejected());
+	// 	console.log('output.isFulfilled?:', output.isFulfilled());
+	// });
+console.log('output is it a promise?: ', output);
+</script>
+
+</html>
+```
