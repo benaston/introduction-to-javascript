@@ -440,17 +440,33 @@ The problem with the above is that the entire file needs to be brought into memo
 
 A stream is an array but in time. Time being the crucial part.
 
-Pipe maintains a cursor to the data, and returns it in chunks.
+`pipe` maintains a cursor to the data, and returns it in chunks.
 
 ```javascript
 var fs = require('fs'),
 http = require('http'),
-path = require('path');
+path = require('path'),
+zlib = require('zlib');
 
 var server = http.createServer(function(req, res) {
-  var readableStream = fs.createReadStream(path.join(__dirname, req.url));
-  readableStream.pipe(res);
+  res.writeHead(200, { 'Content-Encoding': 'gzip' });
+  
+  fs.createReadStream(path.join(__dirname, req.url));
+  	.pipe(zlib.createGzip());
+  	.pipe(res);
 });
 
 server.listen(3000);
+```
+
+`pipe` is cool because it enables us to chain streams.
+
+###Writable streams
+
+A buffer can be thought of as an array that contains binary data.
+
+```javascript
+var writeableStream = getWritableStream(); // A magic node function.
+writableStream.write(new Buffer());
+
 ```
