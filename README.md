@@ -412,3 +412,41 @@ console.log('output is it a promise?: ', output);
 
 </html>
 ```
+
+##Streams
+
+```javascript
+var http = require('http');
+var fs = require('fs');
+
+http.createServer(function (req, res) {
+var filename, index;
+
+filename = /^\/(.*)/g.exec(req.url);
+
+if(filename.length) {
+  try {
+    index = fs.readFileSync('./' + filename[0]);
+    res.writeHead(200, {'Content-Type': 'text/html'});
+  } catch (e) { 
+    index = e.message;
+  }
+}
+
+res.end(index);
+```
+
+The problem with the above is that the entire file needs to be brought into memory before it is sent to the client. Ideally we would be able to deliver bytes to the client in a more controlled fashion.
+
+A stream is an array but in time.
+
+var fs = require('fs'),
+http = require('http'),
+path = require('path');
+
+var server = http.createServer(function(req, res) {
+  var readableStream = fs.createReadStream(path.join(__dirname, req.url));
+  readableStream.pipe(res);
+});
+
+server.listen(3000);
