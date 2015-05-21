@@ -438,8 +438,11 @@ res.end(index);
 
 The problem with the above is that the entire file needs to be brought into memory before it is sent to the client. Ideally we would be able to deliver bytes to the client in a more controlled fashion.
 
-A stream is an array but in time.
+A stream is an array but in time. Time being the crucial part.
 
+Pipe maintains a cursor to the data, and returns it in chunks.
+
+```javascript
 var fs = require('fs'),
 http = require('http'),
 path = require('path');
@@ -450,3 +453,4 @@ var server = http.createServer(function(req, res) {
 });
 
 server.listen(3000);
+```
