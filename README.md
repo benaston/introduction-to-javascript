@@ -470,3 +470,15 @@ var writeableStream = getWritableStream(); // A magic node function.
 writableStream.write(new Buffer());
 
 ```
+
+```javascript
+var isPrime = function(n) {
+	for(var i = 2; i <= Math.sqrt(n); i++) {
+	  if(n%2 === 0) { 
+	    return false; 
+	  }
+	  
+	  return true;
+	}
+}
+```
