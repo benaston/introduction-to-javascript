@@ -482,3 +482,18 @@ var isPrime = function(n) {
 	}
 }
 ```
+
+```javascript
+var writestream = new stream.Stream();
+writestream.writable = true;
+writestream.write = function (data) {
+  return true // true means 'yes i am ready for more data now'
+   			  // OR return false and emit('drain') when ready later
+}
+writestream.end = function (data) {
+  // no more writes after end
+  // emit "close" (optional)
+};
+
+writestream.write({number: 1});
+```
