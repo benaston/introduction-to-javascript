@@ -497,3 +497,7 @@ writestream.end = function (data) {
 
 writestream.write({number: 1});
 ```
+
+#JSON-P 
+
+Example: https://api.ipify.org/?format=jsonp&callback=getIP
